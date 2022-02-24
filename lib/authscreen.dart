@@ -1,12 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class AuthScreen extends StatelessWidget {
+  const AuthScreen({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -15,8 +10,15 @@ class MyApp extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(36)),
         borderSide: BorderSide(
             color: const Color(0xFFbbbbbb), width: 2));
+    const linkTextStyle = TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        color: Color(0xFF0079D0)
+    );
+
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(),
           body: Container(
             height: double.infinity,
             width: double.infinity,
@@ -24,23 +26,10 @@ class MyApp extends StatelessWidget {
             child: SingleChildScrollView(
               child: Column(children: [
                 SizedBox(height: 100,),
-                SizedBox(child:
-                Row(children:[
-                  Icon(Icons.account_circle_outlined),
-                  SizedBox(width: 50),
-                  Text('Регистрация',
-                    style: TextStyle(fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromRGBO(0, 0, 0, 0.9)),),
-
-                ])),
-
+                const SizedBox(width: 110, height: 84, child: Image(image: AssetImage('assets/600x600wa.png')),),
                 SizedBox(height: 20,),
-                Text('Чтобы зарегистрироваться введите свой номер телефона и почту',
+                Text('Введите логин в виде 10 цифр номера телефона',
                   style: TextStyle(fontSize: 16, color: Color.fromRGBO(0, 0, 0, 0.6)),),
-                SizedBox(height: 20,),
-                Text('Телефон',
-                  style: TextStyle(fontSize: 16, color: Color.fromRGBO(0, 0, 0, 0.8)),),
                 SizedBox(height: 20,),
                 TextField(
                   keyboardType: TextInputType.phone,
@@ -49,12 +38,9 @@ class MyApp extends StatelessWidget {
                     fillColor: Color(0xFFeceff1),
                     enabledBorder: borderStyle,
                     focusedBorder: borderStyle,
-                    labelText: '+7',
+                    labelText: 'Телефон',
                   ),
                 ),
-                SizedBox(height: 20,),
-                Text('Почта',
-                  style: TextStyle(fontSize: 16, color: Color.fromRGBO(0, 0, 0, 0.8)),),
                 SizedBox(height: 20,),
                 TextField(
                   obscureText: true,
@@ -63,18 +49,13 @@ class MyApp extends StatelessWidget {
                     fillColor: Color(0xFFeceff1),
                     enabledBorder: borderStyle,
                     focusedBorder: borderStyle,
+                    labelText: 'Пароль',
                   ),
                 ),
                 SizedBox(height: 28,),
-                const Text('Вам придет четырехзначный код, который будет вашим паролем',
-                  style: TextStyle(fontSize: 16, color: Color.fromRGBO(0, 0, 0, 0.6)),),
-                SizedBox(height: 20,),
-                const Text('Изменить пароль можно будет в личном кабинете после регистрации',
-                  style: TextStyle(fontSize: 16, color: Color.fromRGBO(0, 0, 0, 0.6)),),
-                SizedBox(height: 32,),
                 SizedBox(width: 154, height: 42, child:
                 ElevatedButton(onPressed: () {},
-                  child: Text('Отправить код'),
+                  child: Text('Войти'),
                   style: ElevatedButton.styleFrom(
                     primary: Color(0xFF0079D0),
                     shape: RoundedRectangleBorder(
@@ -83,6 +64,11 @@ class MyApp extends StatelessWidget {
                   ),
                 )
                 ),
+                SizedBox(height: 32,),
+                InkWell(child: const Text('Регистрация', style: linkTextStyle,),
+                    onTap: () {}),
+                SizedBox(height: 20,),
+                InkWell(child: Text('Забыли пароль?', style: linkTextStyle,), onTap: () {})
 
               ],),
             ),
