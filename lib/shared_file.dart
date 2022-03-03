@@ -117,7 +117,7 @@ class _FlutterDemoState extends State<FlutterDemo> {
               'Кнопка Файла нажата $_filecounter раз${_filecounter == 1 ? '' : 's'}.',
             ),
             style: ElevatedButton.styleFrom(
-              primary: Color(0xFF0079D0),
+              primary: const Color(0xFF0079D0),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(36.0),
               ),
@@ -125,7 +125,7 @@ class _FlutterDemoState extends State<FlutterDemo> {
           )
           ),
 
-          SizedBox(height: 100,),
+          const SizedBox(height: 100,),
           const Text(
             'Вы нажали на кнопку:',
           ),
